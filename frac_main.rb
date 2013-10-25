@@ -132,8 +132,3 @@ class Fraccion
    end
   end 
 end  
-
-f1= Fraccion.new(3,3)
-f2= Fraccion.new(2,2)
-
-f1%f2
