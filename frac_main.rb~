@@ -1,8 +1,12 @@
-require "./gcd.rb"
+#! /usr/local/ruby/bin/ruby 
+require 'gcd.rb'
 
+include Comparable
+ 
 class Fraccion
   attr_reader :n, :d  
   
+# Constructor de la clase Fraccion  
   def initialize(n,d)
     max = gcd(n,d)
     @n = n / max
@@ -16,7 +20,8 @@ class Fraccion
  def denom
    return @d
  end
-  
+ 
+ # Metodo que imprime el numero racional en el formato: num/den 
  def to_s
    return %Q(#{@n}/#{@d}) 
  end
@@ -131,9 +136,22 @@ class Fraccion
      return false    
    end
   end 
+  
+  def <=>(other)
+    if ((@n == other.n) && (@d == other.d))
+      return 0
+    end
+    if ((@n * other.d) < (@d * other.n))
+      return -1
+    end
+    if ((@n * other.d) > (@d * other.n))
+      return 1 
+    end
+  end
+  
 end  
 
-f1= Fraccion.new(3,3)
-f2= Fraccion.new(2,2)
 
-f1%f2
+
+
+

@@ -3,6 +3,7 @@ def gcd(u, v)
   u = u.abs
   v = v.abs
   
+  
   k=2
   
   while k <= u and k <= v

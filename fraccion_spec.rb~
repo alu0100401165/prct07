@@ -1,4 +1,5 @@
-require "frac_main.rb"
+require 'frac_main.rb'
+require 'rspec'
 
 describe Fraccion do
   before :each do
@@ -45,7 +46,7 @@ describe "Racional" do
    end
   
      it "Se debe comparar si dos fracciones son iguales con ==" do
-           (@f1 == @f1).should eq(true)
+           (@f1 == @f1).should be_true
 	   
     end
     
@@ -100,22 +101,22 @@ describe "Racional" do
      
      
        it "Se debe de poder comprobar si una fracion es menor que otra" do
-           (@f1 < @f2).should eq(true)
+           (@f1 < @f2).should be_true
 	   
        end
        
        it "Se debe de poder comprobar si una fracion es mayor que otra" do
-           (@f2 > @f1).should eq(true)
+           (@f2 > @f1).should be_true
 	   
        end
        
        it "Se debe de poder comprobar si una fracion es menor o igual que otra" do
-           (@f1 <= @f1).should eq(true)
+           (@f1 <= @f1).should be_true
 	   
        end
        
         it "Se debe de poder comprobar si una fracion es mayor o igual que otra" do
-           (@f2 >= @f1).should eq(true)
+           (@f2 >= @f1).should be_true
 	   
        end
       end 
@@ -133,5 +134,14 @@ describe "Racional" do
 		f3.to_s.should eq("0")
 	      end
           end
-       end     
+       end
+       
+       describe "Módulo comparable" do
+           it "Comprobación si una fración es <=> a otro fración" do
+	     f4 = Fraccion.new(4,3)
+	     f5 = Fraccion.new(2,3)
+	     
+	     (f4 <=> f5).should eq(1)#Se comprueba que f4 es mayor que f5
+	   end
+       end
 end

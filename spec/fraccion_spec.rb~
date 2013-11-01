@@ -1,4 +1,5 @@
-require "fraccion.rb"
+require 'lib/frac_main.rb'
+require 'rspec'
 
 describe Fraccion do
   before :each do
@@ -13,6 +14,7 @@ describe "Racional" do
   
     it "Debe existir un denominador" do
        @f1.d.class.should eq(Fixnum)
+       @f1.distinto_0.should eq(true)
   end
   
      it "Debe de estar en su forma reducida" do
@@ -44,7 +46,7 @@ describe "Racional" do
    end
   
      it "Se debe comparar si dos fracciones son iguales con ==" do
-           (@f1 == @f1).should eq(true)
+           (@f1 == @f1).should be_true
 	   
     end
     
@@ -93,29 +95,53 @@ describe "Racional" do
      
          it "Se debe calcular el resto dos fracciones con % y dar el resultado de forma reducida" do
             f3 = @f1 % @f2
-            f3.to_s.should eq("2/7")
+            f3.to_s.should eq("0/6")
 	   
      end 
      
      
        it "Se debe de poder comprobar si una fracion es menor que otra" do
-           (@f1 < @f2).should eq(true)
+           (@f1 < @f2).should be_true
 	   
        end
        
        it "Se debe de poder comprobar si una fracion es mayor que otra" do
-           (@f2 > @f1).should eq(true)
+           (@f2 > @f1).should be_true
 	   
        end
        
        it "Se debe de poder comprobar si una fracion es menor o igual que otra" do
-           (@f1 <= @f1).should eq(true)
+           (@f1 <= @f1).should be_true
 	   
        end
        
         it "Se debe de poder comprobar si una fracion es mayor o igual que otra" do
-           (@f2 >= @f1).should eq(true)
+           (@f2 >= @f1).should be_true
 	   
        end
-  end
+      end 
+       describe "Conjunto de espectativas de operaciones conjuntas" do
+           it "Ejemplo de operaciones de conjunto" do
+	     f4 = Fraccion.new(3,3)
+	     f5 = Fraccion.new(2,2)
+	     
+	      if(((f4%f5).class==Fixnum) &&((f4%f5)==0))
+		f3=(-f4)*(f5) 
+		f3=f3.abs
+                f3.to_s.should eq("1/1")
+	      else
+		f3=0
+		f3.to_s.should eq("0")
+	      end
+          end
+       end
+       
+       describe "Módulo comparable" do
+           it "Comprobación si una fración es <=> a otro fración" do
+	     f4 = Fraccion.new(4,3)
+	     f5 = Fraccion.new(2,3)
+	     
+	     (f4 <=> f5).should eq(1)#Se comprueba que f4 es mayor que f5
+	   end
+       end
 end
