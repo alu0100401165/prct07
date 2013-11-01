@@ -5,11 +5,6 @@ RSpec::Core::RakeTask.new
 
 task :default => :spec
 
-desc "install gems"
-task :install do
-  sh "bundle install"
-end
-
 desc "Ejecutar las espectativas de la clase Fraccion"
 task :spec do
   sh "rspec -I. spec/fraccion_spec.rb"
