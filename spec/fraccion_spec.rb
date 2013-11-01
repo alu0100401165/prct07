@@ -42,7 +42,7 @@ describe "Racional" do
    end
   
      it "Se debe mostar por la consola la fraccion en formato flotante" do
-       puts %Q(#{@f1.num/@f1.denom.to_f}).should eq("0.666666666666667")
+       (@f1.num/@f1.denom).to_f.should == 6/9
    end
   
      it "Se debe comparar si dos fracciones son iguales con ==" do
@@ -136,7 +136,7 @@ describe "Racional" do
           end
        end
        
-       describe "Módulo comparable" do
+       describe "Modulo comparable" do
            it "Comprobación si una fración es <=> a otro fración" do
 	     f4 = Fraccion.new(4,3)
 	     f5 = Fraccion.new(2,3)
