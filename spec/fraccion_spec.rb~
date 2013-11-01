@@ -137,7 +137,7 @@ describe "Racional" do
        end
        
        describe "Modulo comparable" do
-           it "Comprobación si una fración es <=> a otro fración" do
+           it "Comprobacion si una fraccion es <=> a otro fraccion" do
 	     f4 = Fraccion.new(4,3)
 	     f5 = Fraccion.new(2,3)
 	     
