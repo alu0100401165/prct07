@@ -1,4 +1,4 @@
-require 'lib/frac_main.rb'
+require 'lib/frac_main'
 require 'rspec'
 
 describe Fraccion do
