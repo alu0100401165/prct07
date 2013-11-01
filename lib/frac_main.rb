@@ -1,5 +1,5 @@
 #! /usr/local/ruby/bin/ruby 
-require 'lib/gcd'
+require './lib/gcd'
 
 include Comparable
  
